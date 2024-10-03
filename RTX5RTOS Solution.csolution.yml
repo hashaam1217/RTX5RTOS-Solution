@@ -1,0 +1,29 @@
+# A solution is a collection of related projects that share same base configuration.
+solution:
+  created-for: CMSIS-Toolbox@2.0.0
+  cdefault:
+  compiler: AC6
+
+  # List the packs that define the device and/or board.
+  packs:
+    - pack: ARM::Cortex_DFP@1.0.0
+    - pack: ARM::CMSIS
+
+  # List different hardware targets that are used to deploy the solution.
+  target-types:
+    - type: ARMCM4
+      device: ARM::ARMCM4
+
+  # List of different build configurations.
+  build-types:
+    - type: Debug
+      debug: on
+      optimize: none
+
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  # List related projects.
+  projects:
+    - project: RTX5RTOS/RTX5RTOS.cproject.yml
